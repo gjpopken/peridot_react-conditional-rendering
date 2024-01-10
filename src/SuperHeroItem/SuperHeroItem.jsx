@@ -16,12 +16,21 @@ function SuperHeroItem({ hero, avengersAssemble }) {
 
     // determine if we should render the on or off duty message
     const onOrOffDuty = () => {
-        if (hero.onDuty) {
-            // need to return JSX
-            return <p>ON DUTY</p>;
-        } else {
-            // need to return JSX
-            return <p>SLEEPING</p>;
+        // if (hero.onDuty) {
+        //     // need to return JSX
+        //     return <p>ON DUTY</p>;
+        // } else {
+        //     // need to return JSX
+        //     return <p>SLEEPING</p>;
+        // }
+        switch (hero.onDuty) {
+            case true:
+                return <p>ON DUTY</p>
+            case false:
+                return <p>SLEEPING</p>
+            default:
+                return <p>RAN AWAY</p>
+
         }
     }
 
@@ -30,16 +39,20 @@ function SuperHeroItem({ hero, avengersAssemble }) {
     return (
         <div className="hero">
             {/* {JSON.stringify(this.props)} */}
-            <h2>{hero.superheroName}</h2>
+            <h2>
+                {hero.onDuty && '👁‍🗨 '}
+                {hero.superheroName}
+                {hero.class === "psychic" ? ' 🧠' : ' 🗡'}
+            </h2>
             <p>Power: {hero.power}</p>
 
             {/* conditionally render the hero's real name */}
-            { !isMasked &&
+            {!isMasked &&
                 <p>Alias: {hero.alias}</p>
             }
 
             {/* conditionally render Duty status */}
-            { onOrOffDuty()}
+            {onOrOffDuty()}
 
             <button onClick={toggleMask}>Toggle Alias</button>
             <button onClick={() => avengersAssemble(hero)}>Assemble!</button>

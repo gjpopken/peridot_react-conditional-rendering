@@ -10,7 +10,22 @@ function App() {
       superheroName: 'Prof X',
       onDuty: true,
       alias: 'Xavier',
-      power: 'does stuff'
+      power: 'does stuff',
+      class: "psychic"
+    },
+    {
+      superheroName: 'Wolverine',
+      onDuty: false,
+      alias: "Logan Paul",
+      power: "cuts stuff",
+      class: "fighter"
+    },
+    {
+      superheroName: 'Phoenix',
+      onDuty: false,
+      alias: "Jean Grey",
+      power: "feels stuff",
+      class: "psychic"
     }
   ])
 
